@@ -1,41 +1,47 @@
 {
-  "private": true,
-  "displayName": "Plugin Name",
-  "name": "homebridge-plugin-name",
-  "version": "1.0.0",
-  "description": "A short description about what your plugin does.",
+  "displayName": "TotalConnect 2.0 Security",
+  "name": "@seerocode/homebridge-total-connect-security-alarm-panel",
+  "version": "1.2.0",
+  "description": "Homebridge plugin for TotalConnect 2.0 Security Systems.",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/USERNAME/GITHUB_PROJECT_NAME.git"
+    "url": "git+https://github.com/matthillman/homebridge-tc-2-0.git"
   },
   "bugs": {
-    "url": "https://github.com/USERNAME/GITHUB_PROJECT_NAME/issues"
+    "url": "https://github.com/matthillman/homebridge-tc-2-0/issues"
   },
   "engines": {
-    "node": "^18.17.0",
-    "homebridge": "^1.6.0"
+    "node": ">=10.17.0",
+    "homebridge": ">=1.0.0"
   },
   "main": "dist/index.js",
   "scripts": {
-    "lint": "eslint src/**.ts --max-warnings=0",
     "watch": "npm run build && npm link && nodemon",
     "build": "rimraf ./dist && tsc",
-    "prepublishOnly": "npm run lint && npm run build"
+    "prepublishOnly": "npm run build",
+    "api": "npm run build && node ./dist/api.js"
   },
   "keywords": [
     "homebridge-plugin"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "got": "^11.8.1",
+    "simple-oauth2": "^4.2.0",
+    "xml-js": "^1.6.11"
+  },
   "devDependencies": {
-    "@types/node": "^18.16.20",
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "@typescript-eslint/parser": "^5.62.0",
-    "eslint": "^8.45.0",
-    "homebridge": "^1.6.0",
-    "nodemon": "^2.0.22",
+    "@types/node": "^14.14.6",
+    "@typescript-eslint/eslint-plugin": "^4.6.1",
+    "@typescript-eslint/parser": "^4.6.1",
+    "eslint": "^7.13.0",
+    "homebridge": "^1.2.3",
+    "nodemon": "^2.0.6",
     "rimraf": "^3.0.2",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.9.5"
-  }
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.5"
+  },
+  "types": "./dist/index.d.ts",
+  "homepage": "https://github.com/matthillman/homebridge-tc-2-0#readme",
+  "author": ""
 }
